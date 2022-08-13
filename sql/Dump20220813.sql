@@ -45,16 +45,6 @@ CREATE TABLE `giaodichcanhan` (
   CONSTRAINT `GDCN-MaTKTD` FOREIGN KEY (`MaTKTD`) REFERENCES `taikhoantindung` (`MaTKTD`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `giaodichcanhan`
---
-
-LOCK TABLES `giaodichcanhan` WRITE;
-/*!40000 ALTER TABLE `giaodichcanhan` DISABLE KEYS */;
-INSERT INTO `giaodichcanhan` VALUES (1,1000,'chi tieu TKTD','tien mat','2022-08-11 17:12:08',25,1,NULL,1),(6666,70000,'nap tien TKGT','test','2022-08-01 15:39:29',25,NULL,1111,1);
-/*!40000 ALTER TABLE `giaodichcanhan` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -156,16 +146,6 @@ CREATE TABLE `giaodichcanhan_log` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `giaodichcanhan_log`
---
-
-LOCK TABLES `giaodichcanhan_log` WRITE;
-/*!40000 ALTER TABLE `giaodichcanhan_log` DISABLE KEYS */;
-INSERT INTO `giaodichcanhan_log` VALUES (1,'2022-08-11 17:12:08','Insert',1,1000,'chi tieu TKTD','tien mat','2022-08-11 17:12:08',25,1,NULL,1);
-/*!40000 ALTER TABLE `giaodichcanhan_log` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `giaodichtochucdoanhnghiep`
 --
 
@@ -193,15 +173,6 @@ CREATE TABLE `giaodichtochucdoanhnghiep` (
   CONSTRAINT `GDTCDN-MaTKVT` FOREIGN KEY (`MaTKVT`) REFERENCES `taikhoanvaytien` (`MaTKVT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `giaodichtochucdoanhnghiep`
---
-
-LOCK TABLES `giaodichtochucdoanhnghiep` WRITE;
-/*!40000 ALTER TABLE `giaodichtochucdoanhnghiep` DISABLE KEYS */;
-/*!40000 ALTER TABLE `giaodichtochucdoanhnghiep` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -306,15 +277,6 @@ CREATE TABLE `giaodichtochucdoanhnghiep_log` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `giaodichtochucdoanhnghiep_log`
---
-
-LOCK TABLES `giaodichtochucdoanhnghiep_log` WRITE;
-/*!40000 ALTER TABLE `giaodichtochucdoanhnghiep_log` DISABLE KEYS */;
-/*!40000 ALTER TABLE `giaodichtochucdoanhnghiep_log` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `khachhang`
 --
 
@@ -328,16 +290,6 @@ CREATE TABLE `khachhang` (
   PRIMARY KEY (`MaKH`)
 ) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `khachhang`
---
-
-LOCK TABLES `khachhang` WRITE;
-/*!40000 ALTER TABLE `khachhang` DISABLE KEYS */;
-INSERT INTO `khachhang` VALUES (25,'Duc','HN'),(67,'IVS','test'),(68,'a','a');
-/*!40000 ALTER TABLE `khachhang` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -503,16 +455,6 @@ CREATE TABLE `khachhang_log` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `khachhang_log`
---
-
-LOCK TABLES `khachhang_log` WRITE;
-/*!40000 ALTER TABLE `khachhang_log` DISABLE KEYS */;
-INSERT INTO `khachhang_log` VALUES (1,'2022-08-11 17:42:14','Update',67,'45','IVS','test','test'),(2,'2022-08-11 17:43:58','Insert',68,NULL,'a',NULL,'a');
-/*!40000 ALTER TABLE `khachhang_log` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `khachhang_sdt`
 --
 
@@ -526,16 +468,6 @@ CREATE TABLE `khachhang_sdt` (
   CONSTRAINT `MaKH-SDT` FOREIGN KEY (`MaKH`) REFERENCES `khachhang` (`MaKH`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `khachhang_sdt`
---
-
-LOCK TABLES `khachhang_sdt` WRITE;
-/*!40000 ALTER TABLE `khachhang_sdt` DISABLE KEYS */;
-INSERT INTO `khachhang_sdt` VALUES (25,'0123456'),(67,'345');
-/*!40000 ALTER TABLE `khachhang_sdt` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -702,15 +634,6 @@ CREATE TABLE `khachhang_sdt_log` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `khachhang_sdt_log`
---
-
-LOCK TABLES `khachhang_sdt_log` WRITE;
-/*!40000 ALTER TABLE `khachhang_sdt_log` DISABLE KEYS */;
-/*!40000 ALTER TABLE `khachhang_sdt_log` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `khachhangcanhan`
 --
 
@@ -725,16 +648,6 @@ CREATE TABLE `khachhangcanhan` (
   CONSTRAINT `MaKHCN` FOREIGN KEY (`MaKHCN`) REFERENCES `khachhang` (`MaKH`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `khachhangcanhan`
---
-
-LOCK TABLES `khachhangcanhan` WRITE;
-/*!40000 ALTER TABLE `khachhangcanhan` DISABLE KEYS */;
-INSERT INTO `khachhangcanhan` VALUES (25,'dev','0'),(68,'a','a');
-/*!40000 ALTER TABLE `khachhangcanhan` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -890,16 +803,6 @@ CREATE TABLE `khachhangcanhan_log` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `khachhangcanhan_log`
---
-
-LOCK TABLES `khachhangcanhan_log` WRITE;
-/*!40000 ALTER TABLE `khachhangcanhan_log` DISABLE KEYS */;
-INSERT INTO `khachhangcanhan_log` VALUES (2,'2022-08-11 17:47:51','Delete',67,'123',NULL,'543',NULL),(3,'2022-08-11 17:48:15','Insert',68,NULL,'a',NULL,'a');
-/*!40000 ALTER TABLE `khachhangcanhan_log` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `khachhangtochucdoanhnghiep`
 --
 
@@ -914,16 +817,6 @@ CREATE TABLE `khachhangtochucdoanhnghiep` (
   CONSTRAINT `MaKHTCDN` FOREIGN KEY (`MaKHTCDN`) REFERENCES `khachhang` (`MaKH`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `khachhangtochucdoanhnghiep`
---
-
-LOCK TABLES `khachhangtochucdoanhnghiep` WRITE;
-/*!40000 ALTER TABLE `khachhangtochucdoanhnghiep` DISABLE KEYS */;
-INSERT INTO `khachhangtochucdoanhnghiep` VALUES (67,'23213','13');
-/*!40000 ALTER TABLE `khachhangtochucdoanhnghiep` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1079,15 +972,6 @@ CREATE TABLE `khachhangtochucdoanhnghiep_log` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `khachhangtochucdoanhnghiep_log`
---
-
-LOCK TABLES `khachhangtochucdoanhnghiep_log` WRITE;
-/*!40000 ALTER TABLE `khachhangtochucdoanhnghiep_log` DISABLE KEYS */;
-/*!40000 ALTER TABLE `khachhangtochucdoanhnghiep_log` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `nhanvien`
 --
 
@@ -1102,16 +986,6 @@ CREATE TABLE `nhanvien` (
   PRIMARY KEY (`MaNV`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6970 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `nhanvien`
---
-
-LOCK TABLES `nhanvien` WRITE;
-/*!40000 ALTER TABLE `nhanvien` DISABLE KEYS */;
-INSERT INTO `nhanvien` VALUES (1,'cuong','dfa','sep'),(2,'cuong','d','sep'),(3,'nam','binh da','nhan vien'),(123,'1231','123','123'),(6969,'test','test dc','sep');
-/*!40000 ALTER TABLE `nhanvien` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1269,16 +1143,6 @@ CREATE TABLE `nhanvien_log` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `nhanvien_log`
---
-
-LOCK TABLES `nhanvien_log` WRITE;
-/*!40000 ALTER TABLE `nhanvien_log` DISABLE KEYS */;
-INSERT INTO `nhanvien_log` VALUES (1,'2022-07-29 10:44:43','Insert',4,NULL,'a',NULL,'a',NULL,'a'),(2,'2022-07-29 10:50:30','Update',2,'cuongggg','cuong','dfa','d','sepppp','sep'),(3,'2022-07-29 10:52:57','Delete',4,'a',NULL,'a',NULL,'a',NULL),(4,'2022-07-29 20:34:19','Insert',123,NULL,'1231',NULL,'123',NULL,'123'),(5,'2022-07-29 21:49:24','Insert',6969,NULL,'test',NULL,'test dc',NULL,'sep');
-/*!40000 ALTER TABLE `nhanvien_log` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `nhanvien_sdt`
 --
 
@@ -1292,16 +1156,6 @@ CREATE TABLE `nhanvien_sdt` (
   CONSTRAINT `MaNV-SDT` FOREIGN KEY (`MaNV`) REFERENCES `nhanvien` (`MaNV`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `nhanvien_sdt`
---
-
-LOCK TABLES `nhanvien_sdt` WRITE;
-/*!40000 ALTER TABLE `nhanvien_sdt` DISABLE KEYS */;
-INSERT INTO `nhanvien_sdt` VALUES (1,'+84787111997'),(2,'0787111997'),(3,'0111111111'),(123,'123'),(6969,'01234567');
-/*!40000 ALTER TABLE `nhanvien_sdt` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1468,15 +1322,6 @@ CREATE TABLE `nhanvien_sdt_log` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `nhanvien_sdt_log`
---
-
-LOCK TABLES `nhanvien_sdt_log` WRITE;
-/*!40000 ALTER TABLE `nhanvien_sdt_log` DISABLE KEYS */;
-/*!40000 ALTER TABLE `nhanvien_sdt_log` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `sohuucanhan`
 --
 
@@ -1499,18 +1344,8 @@ CREATE TABLE `sohuucanhan` (
   CONSTRAINT `SHCN-MaNV` FOREIGN KEY (`MaNV`) REFERENCES `nhanvien` (`MaNV`),
   CONSTRAINT `SHCN-MaTKGT` FOREIGN KEY (`MaTKGT`) REFERENCES `taikhoanguitien` (`MaTKGT`),
   CONSTRAINT `SHCN-MaTKTD` FOREIGN KEY (`MaTKTD`) REFERENCES `taikhoantindung` (`MaTKTD`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sohuucanhan`
---
-
-LOCK TABLES `sohuucanhan` WRITE;
-/*!40000 ALTER TABLE `sohuucanhan` DISABLE KEYS */;
-INSERT INTO `sohuucanhan` VALUES (1,'2022-08-01 15:38:23',25,1,NULL,1),(2,'2022-08-01 15:39:29',25,NULL,1111,1);
-/*!40000 ALTER TABLE `sohuucanhan` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1704,18 +1539,8 @@ CREATE TABLE `sohuucanhan_log` (
   `MaTKGT` int DEFAULT NULL,
   `MaNV` int DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sohuucanhan_log`
---
-
-LOCK TABLES `sohuucanhan_log` WRITE;
-/*!40000 ALTER TABLE `sohuucanhan_log` DISABLE KEYS */;
-INSERT INTO `sohuucanhan_log` VALUES (1,'2022-08-01 15:38:23','Insert',1,NULL,25,1,NULL,1),(2,'2022-08-01 15:39:29','Insert',2,NULL,25,NULL,1111,1);
-/*!40000 ALTER TABLE `sohuucanhan_log` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sohuutochucdoanhnghiep`
@@ -1725,7 +1550,7 @@ DROP TABLE IF EXISTS `sohuutochucdoanhnghiep`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sohuutochucdoanhnghiep` (
-  `MaSH` int NOT NULL,
+  `MaSH` int NOT NULL AUTO_INCREMENT,
   `ThoiGian` datetime DEFAULT CURRENT_TIMESTAMP,
   `MaKHTCDN` int DEFAULT NULL,
   `MaTKGT` int DEFAULT NULL,
@@ -1740,17 +1565,8 @@ CREATE TABLE `sohuutochucdoanhnghiep` (
   CONSTRAINT `SHTCDN-MaNV` FOREIGN KEY (`MaNV`) REFERENCES `nhanvien` (`MaNV`),
   CONSTRAINT `SHTCDN-MaTKGT` FOREIGN KEY (`MaTKGT`) REFERENCES `taikhoanguitien` (`MaTKGT`),
   CONSTRAINT `SHTCDN-MaTKVT` FOREIGN KEY (`MaTKVT`) REFERENCES `taikhoanvaytien` (`MaTKVT`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sohuutochucdoanhnghiep`
---
-
-LOCK TABLES `sohuutochucdoanhnghiep` WRITE;
-/*!40000 ALTER TABLE `sohuutochucdoanhnghiep` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sohuutochucdoanhnghiep` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1944,17 +1760,8 @@ CREATE TABLE `sohuutochucdoanhnghiep_log` (
   `MaTKVT` int DEFAULT NULL,
   `MaNV` int DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sohuutochucdoanhnghiep_log`
---
-
-LOCK TABLES `sohuutochucdoanhnghiep_log` WRITE;
-/*!40000 ALTER TABLE `sohuutochucdoanhnghiep_log` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sohuutochucdoanhnghiep_log` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `taikhoan`
@@ -1969,16 +1776,6 @@ CREATE TABLE `taikhoan` (
   PRIMARY KEY (`MaTK`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `taikhoan`
---
-
-LOCK TABLES `taikhoan` WRITE;
-/*!40000 ALTER TABLE `taikhoan` DISABLE KEYS */;
-INSERT INTO `taikhoan` VALUES (1,'vang'),(1111,'ga');
-/*!40000 ALTER TABLE `taikhoan` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -2142,16 +1939,6 @@ CREATE TABLE `taikhoan_log` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `taikhoan_log`
---
-
-LOCK TABLES `taikhoan_log` WRITE;
-/*!40000 ALTER TABLE `taikhoan_log` DISABLE KEYS */;
-INSERT INTO `taikhoan_log` VALUES (1,'2022-08-01 15:37:56','Insert',1,NULL,'vang');
-/*!40000 ALTER TABLE `taikhoan_log` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `taikhoanguitien`
 --
 
@@ -2165,16 +1952,6 @@ CREATE TABLE `taikhoanguitien` (
   PRIMARY KEY (`MaTKGT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `taikhoanguitien`
---
-
-LOCK TABLES `taikhoanguitien` WRITE;
-/*!40000 ALTER TABLE `taikhoanguitien` DISABLE KEYS */;
-INSERT INTO `taikhoanguitien` VALUES (1111,1,2);
-/*!40000 ALTER TABLE `taikhoanguitien` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -2326,17 +2103,8 @@ CREATE TABLE `taikhoanguitien_log` (
   `SoDu_old` varchar(255) DEFAULT NULL,
   `SoDu_new` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `taikhoanguitien_log`
---
-
-LOCK TABLES `taikhoanguitien_log` WRITE;
-/*!40000 ALTER TABLE `taikhoanguitien_log` DISABLE KEYS */;
-/*!40000 ALTER TABLE `taikhoanguitien_log` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `taikhoantindung`
@@ -2353,16 +2121,6 @@ CREATE TABLE `taikhoantindung` (
   CONSTRAINT `MaTKTD` FOREIGN KEY (`MaTKTD`) REFERENCES `taikhoan` (`MaTK`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `taikhoantindung`
---
-
-LOCK TABLES `taikhoantindung` WRITE;
-/*!40000 ALTER TABLE `taikhoantindung` DISABLE KEYS */;
-INSERT INTO `taikhoantindung` VALUES (1,100,100);
-/*!40000 ALTER TABLE `taikhoantindung` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -2518,16 +2276,6 @@ CREATE TABLE `taikhoantindung_log` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `taikhoantindung_log`
---
-
-LOCK TABLES `taikhoantindung_log` WRITE;
-/*!40000 ALTER TABLE `taikhoantindung_log` DISABLE KEYS */;
-INSERT INTO `taikhoantindung_log` VALUES (1,'2022-08-01 15:38:09','Insert',1,NULL,'100',NULL,'0'),(2,'2022-08-11 17:38:16','Update',1,'100','100','0','100');
-/*!40000 ALTER TABLE `taikhoantindung_log` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `taikhoanvaytien`
 --
 
@@ -2542,15 +2290,6 @@ CREATE TABLE `taikhoanvaytien` (
   CONSTRAINT `MaTKVT` FOREIGN KEY (`MaTKVT`) REFERENCES `taikhoan` (`MaTK`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `taikhoanvaytien`
---
-
-LOCK TABLES `taikhoanvaytien` WRITE;
-/*!40000 ALTER TABLE `taikhoanvaytien` DISABLE KEYS */;
-/*!40000 ALTER TABLE `taikhoanvaytien` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -2707,15 +2446,6 @@ CREATE TABLE `taikhoanvaytien_log` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `taikhoanvaytien_log`
---
-
-LOCK TABLES `taikhoanvaytien_log` WRITE;
-/*!40000 ALTER TABLE `taikhoanvaytien_log` DISABLE KEYS */;
-/*!40000 ALTER TABLE `taikhoanvaytien_log` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Dumping events for database 'chinhanhnganhang'
 --
 
@@ -2767,6 +2497,35 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `LietKeTienGui` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LietKeTienGui`()
+BEGIN
+	select kh.MaKH, kh.Ten, kh.DiaChi, kh_sdt.Sdt, sum(tkgt.Sodu) as SoduTKGT from khachhang kh
+	join khachhang_sdt kh_sdt
+    on kh.MaKH = kh_sdt.MaKH
+	left join sohuucanhan shcn
+    on kh.MaKH = shcn.MaKHCN
+    left join sohuutochucdoanhnghiep shtcdn
+    on kh.MaKH = shtcdn.MaKHTCDN
+	join taikhoanguitien tkgt
+    on (tkgt.MaTKGT = shcn.MaTKGT or tkgt.MaTKGT = shtcdn.MaTKGT)
+    order by SoduTKGT desc
+    limit 10;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `LietKeTinDung` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -2782,7 +2541,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `LietKeTinDung`(
     in end_date date
 )
 BEGIN
-	select kh.Ten as Ten, SUM(gdcn.SoTien) as SoTien
+	select kh.Ten as Ten, sum(gdcn.SoTien) as SoTien
     from giaodichcanhan gdcn
     join khachhang kh
     on gdcn.MaKHCN = kh.MaKH
@@ -3919,4 +3678,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-13 16:59:26
+-- Dump completed on 2022-08-13 17:44:23
