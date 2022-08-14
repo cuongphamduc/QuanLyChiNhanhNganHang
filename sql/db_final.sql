@@ -588,7 +588,7 @@ CREATE TABLE `khachhang_log` (
   `Diachi_old` varchar(255) DEFAULT NULL,
   `Diachi_new` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -767,7 +767,7 @@ CREATE TABLE `khachhang_sdt_log` (
   `Sdt_old` varchar(12) DEFAULT NULL,
   `Sdt_new` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -936,7 +936,7 @@ CREATE TABLE `khachhangcanhan_log` (
   `ThuNhap_old` varchar(255) DEFAULT NULL,
   `ThuNhap_new` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1715,7 +1715,7 @@ CREATE TABLE `sohuucanhan_log` (
   `MaTKGT` int DEFAULT NULL,
   `MaNV` int DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2150,7 +2150,7 @@ CREATE TABLE `taikhoan_log` (
   `Hang_old` varchar(255) DEFAULT NULL,
   `Hang_new` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2318,7 +2318,7 @@ CREATE TABLE `taikhoanguitien_log` (
   `SoDu_old` varchar(255) DEFAULT NULL,
   `SoDu_new` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2487,7 +2487,7 @@ CREATE TABLE `taikhoantindung_log` (
   `SoNo_old` varchar(255) DEFAULT NULL,
   `SoNo_new` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2657,7 +2657,7 @@ CREATE TABLE `taikhoanvaytien_log` (
   `SoNo_old` varchar(255) DEFAULT NULL,
   `SoNo_new` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3057,6 +3057,72 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `TaoMaGDCN` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `TaoMaGDCN`(
+	out res varchar(255)
+)
+BEGIN
+	declare i int default 1;
+    declare rowCount1 int;
+    
+	select count(*) into rowCount1 from giaodichcanhan gd where gd.MaGD = i;
+    
+    while rowCount1 != 0 do
+		set i = i + 1;
+		select count(*) into rowCount1 from giaodichcanhan gd where gd.MaGD = i;
+
+    end while;
+    
+    set res = cast(i as char);
+    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `TaoMaGDTCDN` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `TaoMaGDTCDN`(
+	out res varchar(255)
+)
+BEGIN
+	declare i int default 1;
+    declare rowCount1 int;
+    
+	select count(*) into rowCount1 from giaodichtochucdoanhnghiep gd where gd.MaGD = i;
+    
+    while rowCount1 != 0 do
+		set i = i + 1;
+		select count(*) into rowCount1 from giaodichtochucdoanhnghiep gd where gd.MaGD = i;
+
+    end while;
+    
+    set res = cast(i as char);
+    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `TaoMaKH` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -3151,7 +3217,7 @@ BEGIN
     while (rowCount1 + rowCount2) != 0 do
 		set i = i + 1;
 		select count(*) into rowCount1 from taikhoan tk where tk.MaTK = i;
-        select count(*) into rowCount2 from taikhoan_log tk_log where tk_log.ThaoTac = "Delete" and tk_log.MaKH = i;
+        select count(*) into rowCount2 from taikhoan_log tk_log where tk_log.ThaoTac = "Delete" and tk_log.MaTK = i;
     end while;
     
     set res = cast(i as char);
@@ -3173,6 +3239,7 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ThemGiaoDichCaNhan`(
+	in MaGD varchar(255),
     in SoTien varchar(255),
     in LoaiGD varchar(255),
     in PhuongThuc varchar(255),
@@ -3184,18 +3251,18 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `ThemGiaoDichCaNhan`(
 BEGIN
 	if MaTKTD is not null and MaTKTD != "" and MaTKGT is not null and MaTKGT != ""
     then
-		insert into giaodichcanhan (SoTien, LoaiGD, PhuongThuc, MaKHCN, MaTKTD, MaTKGT, MaNV)
-		values (SoTien, LoaiGD, PhuongThuc, MaKHCN, MaTKTD, MaTKGT, MaNV);
+		insert into giaodichcanhan (MaGD, SoTien, LoaiGD, PhuongThuc, MaKHCN, MaTKTD, MaTKGT, MaNV)
+		values (MaGD, SoTien, LoaiGD, PhuongThuc, MaKHCN, MaTKTD, MaTKGT, MaNV);
         
 	elseif MaTKTD is not null and MaTKTD != ""
     then
-		insert into giaodichcanhan (SoTien, LoaiGD, PhuongThuc, MaKHCN, MaTKTD, MaNV)
-		values (SoTien, LoaiGD, PhuongThuc, MaKHCN, MaTKTD, MaNV);
+		insert into giaodichcanhan (MaGD, SoTien, LoaiGD, PhuongThuc, MaKHCN, MaTKTD, MaNV)
+		values (MaGD, SoTien, LoaiGD, PhuongThuc, MaKHCN, MaTKTD, MaNV);
 	
     elseif MaTKGT is not null and MaTKGT != ""
     then
-		insert into giaodichcanhan (SoTien, LoaiGD, PhuongThuc, MaKHCN, MaTKGT, MaNV)
-		values (SoTien, LoaiGD, PhuongThuc, MaKHCN, MaTKGT, MaNV);
+		insert into giaodichcanhan (MaGD, SoTien, LoaiGD, PhuongThuc, MaKHCN, MaTKGT, MaNV)
+		values (MaGD, SoTien, LoaiGD, PhuongThuc, MaKHCN, MaTKGT, MaNV);
     
 	end if;
 	
@@ -3216,6 +3283,7 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ThemGiaoDichToChucDoanhNghiep`(
+	in MaGD varchar(255),
     in SoTien varchar(255),
     in LoaiGD varchar(255),
     in PhuongThuc varchar(255),
@@ -3227,18 +3295,18 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `ThemGiaoDichToChucDoanhNghiep`(
 BEGIN
 	if MaTKGT is not null and MaTKGT != "" and MaTKVT is not null and MaTKVT != ""
     then
-		insert into giaodichtochucdoanhnghiep (SoTien, LoaiGD, PhuongThuc, MaKHTCDN, MaTKGT, MaTKVT, MaNV)
-		values (SoTien, LoaiGD, PhuongThuc, MaKHTCDN, MaTKGT, MaTKVT, MaNV);
+		insert into giaodichtochucdoanhnghiep (MaGD, SoTien, LoaiGD, PhuongThuc, MaKHTCDN, MaTKGT, MaTKVT, MaNV)
+		values (MaGD, SoTien, LoaiGD, PhuongThuc, MaKHTCDN, MaTKGT, MaTKVT, MaNV);
         
 	elseif MaTKGT is not null and MaTKGT != ""
     then
-		insert into giaodichtochucdoanhnghiep (SoTien, LoaiGD, PhuongThuc, MaKHTCDN, MaTKGT, MaNV)
-		values (SoTien, LoaiGD, PhuongThuc, MaKHTCDN, MaTKGT, MaNV);
+		insert into giaodichtochucdoanhnghiep (MaGD, SoTien, LoaiGD, PhuongThuc, MaKHTCDN, MaTKGT, MaNV)
+		values (MaGD, SoTien, LoaiGD, PhuongThuc, MaKHTCDN, MaTKGT, MaNV);
         
 	elseif MaTKVT is not null and MaTKVT != ""
     then
-		insert into giaodichtochucdoanhnghiep (SoTien, LoaiGD, PhuongThuc, MaKHTCDN, MaTKVT, MaNV)
-		values (SoTien, LoaiGD, PhuongThuc, MaKHTCDN, MaTKVT, MaNV);
+		insert into giaodichtochucdoanhnghiep (MaGD, SoTien, LoaiGD, PhuongThuc, MaKHTCDN, MaTKVT, MaNV)
+		values (MaGD, SoTien, LoaiGD, PhuongThuc, MaKHTCDN, MaTKVT, MaNV);
 	end if;
 END ;;
 DELIMITER ;
@@ -3967,15 +4035,17 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `XoaKhachHangCaNhan`(
 )
 BEGIN
 	set FOREIGN_KEY_CHECKS = 0;
+    
 	delete kh, khsdt, khcn, shcn, tk, tktd, tkgt
 	from khachhang kh
-    join khachhang_sdt khsdt on kh.MaKH = khsdt.MaKH
-    join khachhangcanhan khcn on kh.MaKH = khcn.MaKHCN
-    join sohuucanhan shcn on khcn.MaKHCN = shcn.MaKHCN
-	join taikhoan tk on (tk.MaTK = shcn.MaTKTD or tk.MaTK = shcn.MaTKGT)
-    join taikhoantindung tktd on tktd.MaTKTD = shcn.MaTKTD
-    join taikhoanguitien tkgt on tkgt.MaTKGT = shcn.MaTKGT
+    left join khachhang_sdt khsdt on kh.MaKH = khsdt.MaKH
+    left join khachhangcanhan khcn on kh.MaKH = khcn.MaKHCN
+    left join sohuucanhan shcn on khcn.MaKHCN = shcn.MaKHCN
+	left join taikhoan tk on (tk.MaTK = shcn.MaTKTD or tk.MaTK = shcn.MaTKGT)
+    left join taikhoantindung tktd on tktd.MaTKTD = shcn.MaTKTD
+    left join taikhoanguitien tkgt on tkgt.MaTKGT = shcn.MaTKGT
     where kh.MaKH=MaKH;
+    
     set FOREIGN_KEY_CHECKS = 1;
 END ;;
 DELIMITER ;
@@ -4206,4 +4276,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-14 17:22:33
+-- Dump completed on 2022-08-14 19:46:44
