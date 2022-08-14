@@ -53,7 +53,7 @@
     <rect>
      <x>175</x>
      <y>40</y>
-     <width>121</width>
+     <width>199</width>
      <height>461</height>
     </rect>
    </property>
@@ -90,7 +90,43 @@
        </font>
       </property>
       <property name="text">
-       <string>Truy vấn</string>
+       <string>Tính Lương</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Liệt kê tín dụng</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Liệt kê nợ tín dụng</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_6">
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Liệt kê tổng tiền gửi</string>
       </property>
      </widget>
     </item>

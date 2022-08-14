@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>784</width>
-    <height>659</height>
+    <width>1062</width>
+    <height>1010</height>
    </rect>
   </property>
   <property name="font">
@@ -22,8 +22,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>130</y>
+     <x>80</x>
+     <y>170</y>
      <width>200</width>
      <height>40</height>
     </rect>
@@ -40,8 +40,8 @@
   <widget class="QTextEdit" name="textEdit">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>120</y>
+     <x>360</x>
+     <y>160</y>
      <width>301</width>
      <height>60</height>
     </rect>
@@ -50,8 +50,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>330</y>
+     <x>80</x>
+     <y>370</y>
      <width>200</width>
      <height>40</height>
     </rect>
@@ -68,8 +68,8 @@
   <widget class="QTextEdit" name="textEdit_2">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>320</y>
+     <x>360</x>
+     <y>360</y>
      <width>301</width>
      <height>60</height>
     </rect>
@@ -78,8 +78,8 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>430</y>
+     <x>80</x>
+     <y>470</y>
      <width>261</width>
      <height>40</height>
     </rect>
@@ -90,14 +90,14 @@
     </font>
    </property>
    <property name="text">
-    <string>Mã nhân viên quản lý</string>
+    <string>Mã nhân viên thực hiện</string>
    </property>
   </widget>
   <widget class="QTextEdit" name="textEdit_3">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>420</y>
+     <x>360</x>
+     <y>460</y>
      <width>301</width>
      <height>60</height>
     </rect>
@@ -106,8 +106,8 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>520</y>
+     <x>360</x>
+     <y>560</y>
      <width>120</width>
      <height>60</height>
     </rect>
@@ -137,8 +137,8 @@
   <widget class="QTextEdit" name="textEdit_4">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>220</y>
+     <x>360</x>
+     <y>260</y>
      <width>301</width>
      <height>60</height>
     </rect>
@@ -147,8 +147,8 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>230</y>
+     <x>80</x>
+     <y>270</y>
      <width>200</width>
      <height>40</height>
     </rect>
@@ -161,6 +161,158 @@
    <property name="text">
     <string>Mã tài khoản</string>
    </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>100</y>
+     <width>371</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Khách hàng cá nhân</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Khách hàng tổ chức/doanh nghiệp</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>630</y>
+     <width>1011</width>
+     <height>341</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>200</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1800</width>
+     <height>371</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <attribute name="horizontalHeaderVisible">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>110</number>
+   </attribute>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>50</number>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>Mã giao dịch</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Số tiền</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Loại giao dịch</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Phương thức</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Thời gian</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Mã KHCN</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Mã TKTD</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Mã TKGT</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Mã NV</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+   </column>
   </widget>
  </widget>
  <resources/>

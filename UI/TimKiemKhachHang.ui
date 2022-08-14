@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>784</width>
-    <height>559</height>
+    <width>998</width>
+    <height>897</height>
    </rect>
   </property>
   <property name="font">
@@ -119,8 +119,8 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>30</y>
+     <x>370</x>
+     <y>10</y>
      <width>301</width>
      <height>40</height>
     </rect>
@@ -133,6 +133,128 @@
    <property name="text">
     <string>Tìm Kiếm Khách Hàng</string>
    </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>510</y>
+     <width>861</width>
+     <height>341</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>711</width>
+     <height>200</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1000</width>
+     <height>371</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <attribute name="horizontalHeaderVisible">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>140</number>
+   </attribute>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>70</number>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>Mã khách hàng</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Tên</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Địa chỉ</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Số điện thoại</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Nghề nghiệp</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Thu Nhập</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+   </column>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>70</y>
+     <width>371</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Khách hàng cá nhân</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Khách hàng tổ chức/doanh nghiệp</string>
+    </property>
+   </item>
   </widget>
  </widget>
  <resources/>
