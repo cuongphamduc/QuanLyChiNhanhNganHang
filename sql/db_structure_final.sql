@@ -701,7 +701,7 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `khachhang_sdt_AFTER_UPDATE` AFTER UPDATE ON `khachhang_sdt` FOR EACH ROW BEGIN
-	insert into khachhang_sdt_log(ThaoTac, MaKH, Sdt_new, Sdti_new)
+	insert into khachhang_sdt_log(ThaoTac, MaKH, Sdt_old, Sdt_new)
     values("Update", old.MaKH, old.Sdt, new.Sdt);
 END */;;
 DELIMITER ;
@@ -767,7 +767,7 @@ CREATE TABLE `khachhang_sdt_log` (
   `Sdt_old` varchar(12) DEFAULT NULL,
   `Sdt_new` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1276,7 +1276,7 @@ CREATE TABLE `nhanvien_log` (
   `CapBac_old` varchar(255) DEFAULT NULL,
   `CapBac_new` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1389,7 +1389,7 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `nhanvien_sdt_AFTER_UPDATE` AFTER UPDATE ON `nhanvien_sdt` FOR EACH ROW BEGIN
-	insert into nhanvien_sdt_log(ThaoTac, MaNV, Sdt_new, Sdti_new)
+	insert into nhanvien_sdt_log(ThaoTac, MaNV, Sdt_old, Sdt_new)
     values("Update", old.MaNV, old.Sdt, new.Sdt);
 END */;;
 DELIMITER ;
@@ -1455,7 +1455,7 @@ CREATE TABLE `nhanvien_sdt_log` (
   `Sdt_old` varchar(12) DEFAULT NULL,
   `Sdt_new` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4301,4 +4301,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-14 23:23:57
+-- Dump completed on 2022-08-14 23:42:38

@@ -152,7 +152,7 @@ class LietKeTongTienGui(QtWidgets.QDialog):
                 for x in m.fetchall():
                     if x[0] is None or x[0] == "":
                         continue
-                        
+
                     rowPosition = self.tableWidget.rowCount()
                     self.tableWidget.insertRow(rowPosition)
 
