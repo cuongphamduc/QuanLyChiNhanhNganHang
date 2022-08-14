@@ -2851,6 +2851,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SuaKhachHangCaNhan`(
 	in MaKH varchar(255),
     in Ten varchar(255),
+    in DiaChi varchar(255),
     in Sdt varchar(12),
     in NgheNghiep varchar(255),
     in ThuNhap varchar(255)
@@ -2883,6 +2884,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SuaKhachHangToChucDoanhNghiep`(
 	in MaKH varchar(255),
     in Ten varchar(255),
+    in DiaChi varchar(255),
     in Sdt varchar(12),
     in NguoiDaiDien varchar(255),
     in QuyMo varchar(255)
@@ -4204,4 +4206,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-14 15:07:38
+-- Dump completed on 2022-08-14 17:22:33
