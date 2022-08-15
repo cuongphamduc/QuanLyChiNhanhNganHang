@@ -3072,11 +3072,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `LietKeTinDung`(
     in end_date date
 )
 BEGIN
-	select kh.Ten as Ten, gdcn.SoTien as SoTien
+	select kh.Ten as Ten, sum(gdcn.SoTien) as SoTien
     from khachhang kh
 	join giaodichcanhan gdcn
     on gdcn.MaKHCN = kh.MaKH
-    where gdcn.MaTKTD is not null and gdcn.MaTKTD != "" and cast(gdcn.ThoiGianThucHien as date) >= start_date and cast(gdcn.ThoiGianThucHien as date) <= end_date;
+    where gdcn.MaTKTD is not null and gdcn.MaTKTD != "" and cast(gdcn.ThoiGianThucHien as date) >= start_date and cast(gdcn.ThoiGianThucHien as date) <= end_date
+    group by kh.Ten;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -4583,4 +4584,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-15 11:01:55
+-- Dump completed on 2022-08-15 11:14:46
