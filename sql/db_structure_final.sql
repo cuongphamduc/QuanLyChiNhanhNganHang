@@ -43,8 +43,18 @@ CREATE TABLE `giaodichcanhan` (
   CONSTRAINT `GDCN-MaNV` FOREIGN KEY (`MaNV`) REFERENCES `nhanvien` (`MaNV`),
   CONSTRAINT `GDCN-MaTKGT` FOREIGN KEY (`MaTKGT`) REFERENCES `taikhoanguitien` (`MaTKGT`),
   CONSTRAINT `GDCN-MaTKTD` FOREIGN KEY (`MaTKTD`) REFERENCES `taikhoantindung` (`MaTKTD`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `giaodichcanhan`
+--
+
+LOCK TABLES `giaodichcanhan` WRITE;
+/*!40000 ALTER TABLE `giaodichcanhan` DISABLE KEYS */;
+INSERT INTO `giaodichcanhan` VALUES (52,423,'chi tieu TKTD',NULL,'2022-08-15 10:17:16',1,1,NULL,1),(53,234,'chi tieu TKTD',NULL,'2022-08-15 10:17:16',2,2,NULL,2),(54,424,'chi tieu TKTD',NULL,'2022-08-15 10:17:16',3,3,NULL,2),(55,245,'chi tieu TKTD',NULL,'2022-08-15 10:17:16',4,4,NULL,2),(56,765,'chi tieu TKTD',NULL,'2022-08-15 10:17:16',5,5,NULL,1),(57,563,'chi tieu TKTD',NULL,'2022-08-15 10:17:16',6,6,NULL,1),(58,636,'chi tieu TKTD',NULL,'2022-08-15 10:17:16',7,7,NULL,2),(59,452,'chi tieu TKTD',NULL,'2022-08-15 10:17:16',8,8,NULL,1),(60,350,'chi tieu TKTD',NULL,'2022-08-15 10:17:16',9,9,NULL,2),(61,653,'chi tieu TKTD',NULL,'2022-08-15 10:17:16',10,10,NULL,2),(67,341,'thanh toan TKTD','TKGT','2022-08-15 10:19:50',1,1,14,1),(68,341,'thanh toan TKTD','TKGT','2022-08-15 10:19:50',2,2,15,1),(69,34,'thanh toan TKTD','TKGT','2022-08-15 10:19:50',3,3,16,1),(70,23,'thanh toan TKTD','tien mat','2022-08-15 10:19:50',4,4,NULL,1),(71,45,'thanh toan TKTD','tien mat','2022-08-15 10:19:50',5,5,NULL,2),(72,54,'thanh toan TKTD','tien mat','2022-08-15 10:19:50',6,6,NULL,2),(73,345,'thanh toan TKTD','TKGT','2022-08-15 10:19:50',7,7,20,1),(74,35,'thanh toan TKTD','tien mat','2022-08-15 10:19:50',8,8,NULL,2),(75,62,'thanh toan TKTD','tien mat','2022-08-15 10:19:50',9,9,NULL,2),(76,352,'thanh toan TKTD','tien mat','2022-08-15 10:19:50',10,10,NULL,1),(82,123,'nap tien TKGT','tien mat','2022-08-15 10:28:40',1,NULL,14,1),(83,343,'chi tieu TKGT',NULL,'2022-08-15 10:28:40',2,NULL,15,2);
+/*!40000 ALTER TABLE `giaodichcanhan` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -94,7 +104,7 @@ DELIMITER ;;
     call chinhanhnganhang.IsNumber(new.MaTKTD, res);
     call chinhanhnganhang.IsNumber(new.MaTKGT, res1);
     if res = false and res1 = false then
-		set msg = concat("Mã tài khoản không hợp lệ");
+		set msg = "Mã tài khoản không hợp lệ";
         signal sqlstate "45000" set message_text = msg;
 	end if;
     
@@ -146,7 +156,7 @@ DELIMITER ;;
     then
 		update taikhoantindung tktd
         set SoNo = cast(SoNo as unsigned) + cast(new.SoTien as unsigned)
-        where tkgt.MaTKTD = new.MaTKTD;
+        where tktd.MaTKTD = new.MaTKTD;
     end if;
     
     if new.LoaiGD = "thanh toan TKTD" and new.PhuongThuc = "TKGT"
@@ -157,14 +167,14 @@ DELIMITER ;;
         
         update taikhoantindung tktd
         set SoNo = cast(SoNo as unsigned) - cast(new.SoTien as unsigned)
-        where tkgt.MaTKTD = new.MaTKTD;
+        where tktd.MaTKTD = new.MaTKTD;
 	end if;
     
 	if new.LoaiGD = "thanh toan TKTD" and new.PhuongThuc = "tien mat"
     then
         update taikhoantindung tktd
         set SoNo = cast(SoNo as unsigned) - cast(new.SoTien as unsigned)
-        where tkgt.MaTKTD = new.MaTKTD;
+        where tktd.MaTKTD = new.MaTKTD;
 	end if;
     
 	if new.LoaiGD = "nap tien TKGT" and new.PhuongThuc = "tien mat"
@@ -209,8 +219,18 @@ CREATE TABLE `giaodichcanhan_log` (
   `MaTKGT` int DEFAULT NULL,
   `MaNV` int DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `giaodichcanhan_log`
+--
+
+LOCK TABLES `giaodichcanhan_log` WRITE;
+/*!40000 ALTER TABLE `giaodichcanhan_log` DISABLE KEYS */;
+INSERT INTO `giaodichcanhan_log` VALUES (52,'2022-08-15 10:17:16','Insert',52,423,'chi tiêu TKTD',NULL,'2022-08-15 10:17:16',1,1,NULL,1),(53,'2022-08-15 10:17:16','Insert',53,234,'chi tiêu TKTD',NULL,'2022-08-15 10:17:16',2,2,NULL,2),(54,'2022-08-15 10:17:16','Insert',54,424,'chi tiêu TKTD',NULL,'2022-08-15 10:17:16',3,3,NULL,2),(55,'2022-08-15 10:17:16','Insert',55,245,'chi tiêu TKTD',NULL,'2022-08-15 10:17:16',4,4,NULL,2),(56,'2022-08-15 10:17:16','Insert',56,765,'chi tiêu TKTD',NULL,'2022-08-15 10:17:16',5,5,NULL,1),(57,'2022-08-15 10:17:16','Insert',57,563,'chi tiêu TKTD',NULL,'2022-08-15 10:17:16',6,6,NULL,1),(58,'2022-08-15 10:17:16','Insert',58,636,'chi tiêu TKTD',NULL,'2022-08-15 10:17:16',7,7,NULL,2),(59,'2022-08-15 10:17:16','Insert',59,452,'chi tiêu TKTD',NULL,'2022-08-15 10:17:16',8,8,NULL,1),(60,'2022-08-15 10:17:16','Insert',60,350,'chi tiêu TKTD',NULL,'2022-08-15 10:17:16',9,9,NULL,2),(61,'2022-08-15 10:17:16','Insert',61,653,'chi tiêu TKTD',NULL,'2022-08-15 10:17:16',10,10,NULL,2),(67,'2022-08-15 10:19:50','Insert',67,341,NULL,NULL,'2022-08-15 10:19:50',1,NULL,14,1),(68,'2022-08-15 10:19:50','Insert',68,341,NULL,NULL,'2022-08-15 10:19:50',2,NULL,15,1),(69,'2022-08-15 10:19:50','Insert',69,34,NULL,NULL,'2022-08-15 10:19:50',3,NULL,16,1),(70,'2022-08-15 10:19:50','Insert',70,23,NULL,NULL,'2022-08-15 10:19:50',4,NULL,17,1),(71,'2022-08-15 10:19:50','Insert',71,45,NULL,NULL,'2022-08-15 10:19:50',5,NULL,18,2),(72,'2022-08-15 10:19:50','Insert',72,54,NULL,NULL,'2022-08-15 10:19:50',6,NULL,19,2),(73,'2022-08-15 10:19:50','Insert',73,345,NULL,NULL,'2022-08-15 10:19:50',7,NULL,20,1),(74,'2022-08-15 10:19:50','Insert',74,35,NULL,NULL,'2022-08-15 10:19:50',8,NULL,21,2),(75,'2022-08-15 10:19:50','Insert',75,62,NULL,NULL,'2022-08-15 10:19:50',9,NULL,22,2),(76,'2022-08-15 10:19:50','Insert',76,352,NULL,NULL,'2022-08-15 10:19:50',10,NULL,23,1),(82,'2022-08-15 10:28:40','Insert',82,123,'nap tien TKGT','tien mat','2022-08-15 10:28:40',1,NULL,14,1),(83,'2022-08-15 10:28:40','Insert',83,343,'chi tieu TKGT',NULL,'2022-08-15 10:28:40',2,NULL,15,2);
+/*!40000 ALTER TABLE `giaodichcanhan_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `giaodichtochucdoanhnghiep`
@@ -238,8 +258,18 @@ CREATE TABLE `giaodichtochucdoanhnghiep` (
   CONSTRAINT `GDTCDN-MaNV` FOREIGN KEY (`MaNV`) REFERENCES `nhanvien` (`MaNV`),
   CONSTRAINT `GDTCDN-MaTKGT` FOREIGN KEY (`MaTKGT`) REFERENCES `taikhoanguitien` (`MaTKGT`),
   CONSTRAINT `GDTCDN-MaTKVT` FOREIGN KEY (`MaTKVT`) REFERENCES `taikhoanvaytien` (`MaTKVT`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `giaodichtochucdoanhnghiep`
+--
+
+LOCK TABLES `giaodichtochucdoanhnghiep` WRITE;
+/*!40000 ALTER TABLE `giaodichtochucdoanhnghiep` DISABLE KEYS */;
+INSERT INTO `giaodichtochucdoanhnghiep` VALUES (25,152,'chi tieu TKGT',NULL,'2022-08-15 10:34:24',11,24,NULL,1),(26,300,'vay tien TKVT','tien mat','2022-08-15 10:34:24',11,NULL,11,2),(27,12,'vay tien TKVT','TKGT','2022-08-15 10:34:24',12,25,12,2),(28,20,'tra no TKVT','tien mat','2022-08-15 10:34:24',13,NULL,13,1),(29,30,'tra no TKVT','TKGT','2022-08-15 10:34:24',11,26,11,2);
+/*!40000 ALTER TABLE `giaodichtochucdoanhnghiep` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -410,8 +440,18 @@ CREATE TABLE `giaodichtochucdoanhnghiep_log` (
   `MaTKGT` int DEFAULT NULL,
   `MaNV` int DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `giaodichtochucdoanhnghiep_log`
+--
+
+LOCK TABLES `giaodichtochucdoanhnghiep_log` WRITE;
+/*!40000 ALTER TABLE `giaodichtochucdoanhnghiep_log` DISABLE KEYS */;
+INSERT INTO `giaodichtochucdoanhnghiep_log` VALUES (3,'2022-08-15 10:34:24','Insert',25,152,'chi tieu TKGT',NULL,'2022-08-15 10:34:24',11,NULL,24,1),(4,'2022-08-15 10:34:24','Insert',26,300,'vay tien TKVT','tien mat','2022-08-15 10:34:24',11,11,NULL,2),(5,'2022-08-15 10:34:24','Insert',27,12,'vay tien TKVT','TKGT','2022-08-15 10:34:24',12,12,25,2),(6,'2022-08-15 10:34:24','Insert',28,20,'tra no TKVT','tien mat','2022-08-15 10:34:24',13,13,NULL,1),(7,'2022-08-15 10:34:24','Insert',29,30,'tra no TKVT','TKGT','2022-08-15 10:34:24',11,11,26,2);
+/*!40000 ALTER TABLE `giaodichtochucdoanhnghiep_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `khachhang`
@@ -427,6 +467,16 @@ CREATE TABLE `khachhang` (
   PRIMARY KEY (`MaKH`)
 ) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `khachhang`
+--
+
+LOCK TABLES `khachhang` WRITE;
+/*!40000 ALTER TABLE `khachhang` DISABLE KEYS */;
+INSERT INTO `khachhang` VALUES (1,'Nguyễn Văn A','Hà Nội'),(2,'Trần Văn B','Hà Nam'),(3,'Vũ Thị C','Thái Nguyên'),(4,'Tạ Văn D','Hà Nội'),(5,'Phạm Văn E','Thanh Hoá'),(6,'Ngô Tiến F','Hà Nội'),(7,'Lê Đình G','Hà Đông'),(8,'Nguyễn Đăng H','Hà Nội'),(9,'Lê Văn I','Hà Nội'),(10,'Phạm Thị J','Hà Nam'),(11,'Nguyễn Văn K','Thanh Hoá'),(12,'Kiều Văn L','Thái Nguyên'),(13,'Bùi Thị M','Nghệ An');
+/*!40000 ALTER TABLE `khachhang` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -588,8 +638,18 @@ CREATE TABLE `khachhang_log` (
   `Diachi_old` varchar(255) DEFAULT NULL,
   `Diachi_new` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `khachhang_log`
+--
+
+LOCK TABLES `khachhang_log` WRITE;
+/*!40000 ALTER TABLE `khachhang_log` DISABLE KEYS */;
+INSERT INTO `khachhang_log` VALUES (5,'2022-08-15 09:45:42','Insert',1,NULL,'Nguyễn Văn A',NULL,'Hà Nội'),(6,'2022-08-15 09:45:42','Insert',2,NULL,'Trần Văn B',NULL,'Hà Nam'),(7,'2022-08-15 09:45:42','Insert',3,NULL,'Vũ Thị C',NULL,'Thái Nguyên'),(8,'2022-08-15 09:45:42','Insert',4,NULL,'Tạ Văn D',NULL,'Hà Nội'),(9,'2022-08-15 09:45:42','Insert',5,NULL,'Phạm Văn E',NULL,'Thanh Hoá'),(10,'2022-08-15 09:45:42','Insert',6,NULL,'Ngô Tiến F',NULL,'Hà Nội'),(11,'2022-08-15 09:45:42','Insert',7,NULL,'Lê Đình G',NULL,'Hà Đông'),(12,'2022-08-15 09:45:42','Insert',8,NULL,'Nguyễn Đăng H',NULL,'Hà Nội'),(13,'2022-08-15 09:45:42','Insert',9,NULL,'Lê Văn I',NULL,'Hà Nội'),(14,'2022-08-15 09:45:42','Insert',10,NULL,'Phạm Thị J',NULL,'Hà Nam'),(15,'2022-08-15 09:45:42','Insert',11,NULL,'Nguyễn Văn K',NULL,'Thanh Hoá'),(16,'2022-08-15 09:45:42','Insert',12,NULL,'Kiều Văn L',NULL,'Thái Nguyên'),(17,'2022-08-15 09:45:42','Insert',13,NULL,'Bùi Thị M',NULL,'Nghệ An');
+/*!40000 ALTER TABLE `khachhang_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `khachhang_sdt`
@@ -605,6 +665,16 @@ CREATE TABLE `khachhang_sdt` (
   CONSTRAINT `MaKH-SDT` FOREIGN KEY (`MaKH`) REFERENCES `khachhang` (`MaKH`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `khachhang_sdt`
+--
+
+LOCK TABLES `khachhang_sdt` WRITE;
+/*!40000 ALTER TABLE `khachhang_sdt` DISABLE KEYS */;
+INSERT INTO `khachhang_sdt` VALUES (1,'0945881905'),(2,'0374799681'),(3,'0365722364'),(4,'0944287082'),(5,'0974131489'),(6,'0986958908'),(7,'0904054732'),(8,'0988753023'),(9,'0914421796'),(10,'0976054844'),(11,'0964384506'),(12,'0979006323'),(13,'0989352144');
+/*!40000 ALTER TABLE `khachhang_sdt` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -767,8 +837,18 @@ CREATE TABLE `khachhang_sdt_log` (
   `Sdt_old` varchar(12) DEFAULT NULL,
   `Sdt_new` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `khachhang_sdt_log`
+--
+
+LOCK TABLES `khachhang_sdt_log` WRITE;
+/*!40000 ALTER TABLE `khachhang_sdt_log` DISABLE KEYS */;
+INSERT INTO `khachhang_sdt_log` VALUES (27,'2022-08-15 09:47:41','Insert',1,NULL,'0945881905'),(28,'2022-08-15 09:47:41','Insert',2,NULL,'0374799681'),(29,'2022-08-15 09:47:41','Insert',3,NULL,'0365722364'),(30,'2022-08-15 09:47:41','Insert',4,NULL,'0944287082'),(31,'2022-08-15 09:47:41','Insert',5,NULL,'0974131489'),(32,'2022-08-15 09:47:41','Insert',6,NULL,'0986958908'),(33,'2022-08-15 09:47:41','Insert',7,NULL,'0904054732'),(34,'2022-08-15 09:47:41','Insert',8,NULL,'0988753023'),(35,'2022-08-15 09:47:41','Insert',9,NULL,'0914421796'),(36,'2022-08-15 09:47:41','Insert',10,NULL,'0976054844'),(37,'2022-08-15 09:47:41','Insert',11,NULL,'0964384506'),(38,'2022-08-15 09:47:41','Insert',12,NULL,'0979006323'),(39,'2022-08-15 09:47:41','Insert',13,NULL,'0989352144');
+/*!40000 ALTER TABLE `khachhang_sdt_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `khachhangcanhan`
@@ -785,6 +865,16 @@ CREATE TABLE `khachhangcanhan` (
   CONSTRAINT `MaKHCN` FOREIGN KEY (`MaKHCN`) REFERENCES `khachhang` (`MaKH`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `khachhangcanhan`
+--
+
+LOCK TABLES `khachhangcanhan` WRITE;
+/*!40000 ALTER TABLE `khachhangcanhan` DISABLE KEYS */;
+INSERT INTO `khachhangcanhan` VALUES (1,'Lập trình viên','1000'),(2,'Kế toán','2000'),(3,'Làm ruộng','200'),(4,'Xe ôm','700'),(5,'Thiết kế','4000'),(6,'Kỹ sư','600'),(7,'Xây dựng','700'),(8,'Doanh nhân','400'),(9,'Công an','300'),(10,'Bác sỹ','1500');
+/*!40000 ALTER TABLE `khachhangcanhan` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -936,8 +1026,18 @@ CREATE TABLE `khachhangcanhan_log` (
   `ThuNhap_old` varchar(255) DEFAULT NULL,
   `ThuNhap_new` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `khachhangcanhan_log`
+--
+
+LOCK TABLES `khachhangcanhan_log` WRITE;
+/*!40000 ALTER TABLE `khachhangcanhan_log` DISABLE KEYS */;
+INSERT INTO `khachhangcanhan_log` VALUES (6,'2022-08-15 09:51:36','Insert',1,NULL,'Lập trình viên',NULL,'1000'),(7,'2022-08-15 09:51:36','Insert',2,NULL,'Kế toán',NULL,'2000'),(8,'2022-08-15 09:51:36','Insert',3,NULL,'Làm ruộng',NULL,'200'),(9,'2022-08-15 09:51:36','Insert',4,NULL,'Xe ôm',NULL,'700'),(10,'2022-08-15 09:51:36','Insert',5,NULL,'Thiết kế',NULL,'4000'),(11,'2022-08-15 09:51:36','Insert',6,NULL,'Kỹ sư',NULL,'600'),(12,'2022-08-15 09:51:36','Insert',7,NULL,'Xây dựng',NULL,'700'),(13,'2022-08-15 09:51:36','Insert',8,NULL,'Doanh nhân',NULL,'400'),(14,'2022-08-15 09:51:36','Insert',9,NULL,'Công an',NULL,'300'),(15,'2022-08-15 09:51:36','Insert',10,NULL,'Bác sỹ',NULL,'1500');
+/*!40000 ALTER TABLE `khachhangcanhan_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `khachhangtochucdoanhnghiep`
@@ -954,6 +1054,16 @@ CREATE TABLE `khachhangtochucdoanhnghiep` (
   CONSTRAINT `MaKHTCDN` FOREIGN KEY (`MaKHTCDN`) REFERENCES `khachhang` (`MaKH`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `khachhangtochucdoanhnghiep`
+--
+
+LOCK TABLES `khachhangtochucdoanhnghiep` WRITE;
+/*!40000 ALTER TABLE `khachhangtochucdoanhnghiep` DISABLE KEYS */;
+INSERT INTO `khachhangtochucdoanhnghiep` VALUES (11,'Vũ Văn A','100'),(12,'Hà Thị B','10'),(13,'Đỗ Tiến C','50');
+/*!40000 ALTER TABLE `khachhangtochucdoanhnghiep` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1105,8 +1215,18 @@ CREATE TABLE `khachhangtochucdoanhnghiep_log` (
   `QuyMo_old` varchar(255) DEFAULT NULL,
   `QuyMo_new` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `khachhangtochucdoanhnghiep_log`
+--
+
+LOCK TABLES `khachhangtochucdoanhnghiep_log` WRITE;
+/*!40000 ALTER TABLE `khachhangtochucdoanhnghiep_log` DISABLE KEYS */;
+INSERT INTO `khachhangtochucdoanhnghiep_log` VALUES (1,'2022-08-15 09:50:03','Insert',11,NULL,'Vũ Văn A',NULL,'100'),(2,'2022-08-15 09:50:03','Insert',12,NULL,'Hà Thị B',NULL,'10'),(3,'2022-08-15 09:50:03','Insert',13,NULL,'Đỗ Tiến C',NULL,'50');
+/*!40000 ALTER TABLE `khachhangtochucdoanhnghiep_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `nhanvien`
@@ -1123,6 +1243,16 @@ CREATE TABLE `nhanvien` (
   PRIMARY KEY (`MaNV`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6970 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nhanvien`
+--
+
+LOCK TABLES `nhanvien` WRITE;
+/*!40000 ALTER TABLE `nhanvien` DISABLE KEYS */;
+INSERT INTO `nhanvien` VALUES (1,'Hà Minh Y','Hà Nội','Nhân viên'),(2,'Tạ Văn Z','Hà Nội','Nhân viên');
+/*!40000 ALTER TABLE `nhanvien` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1276,8 +1406,18 @@ CREATE TABLE `nhanvien_log` (
   `CapBac_old` varchar(255) DEFAULT NULL,
   `CapBac_new` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nhanvien_log`
+--
+
+LOCK TABLES `nhanvien_log` WRITE;
+/*!40000 ALTER TABLE `nhanvien_log` DISABLE KEYS */;
+INSERT INTO `nhanvien_log` VALUES (11,'2022-08-15 09:48:44','Insert',1,NULL,'Hà Minh Y',NULL,'Hà Nội',NULL,'Nhân viên'),(12,'2022-08-15 09:48:44','Insert',2,NULL,'Tạ Văn Z',NULL,'Hà Nội',NULL,'Nhân viên');
+/*!40000 ALTER TABLE `nhanvien_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `nhanvien_sdt`
@@ -1293,6 +1433,16 @@ CREATE TABLE `nhanvien_sdt` (
   CONSTRAINT `MaNV-SDT` FOREIGN KEY (`MaNV`) REFERENCES `nhanvien` (`MaNV`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nhanvien_sdt`
+--
+
+LOCK TABLES `nhanvien_sdt` WRITE;
+/*!40000 ALTER TABLE `nhanvien_sdt` DISABLE KEYS */;
+INSERT INTO `nhanvien_sdt` VALUES (1,'0904567146'),(2,'0976739552');
+/*!40000 ALTER TABLE `nhanvien_sdt` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1455,8 +1605,18 @@ CREATE TABLE `nhanvien_sdt_log` (
   `Sdt_old` varchar(12) DEFAULT NULL,
   `Sdt_new` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nhanvien_sdt_log`
+--
+
+LOCK TABLES `nhanvien_sdt_log` WRITE;
+/*!40000 ALTER TABLE `nhanvien_sdt_log` DISABLE KEYS */;
+INSERT INTO `nhanvien_sdt_log` VALUES (15,'2022-08-15 09:48:55','Insert',1,NULL,'0904567146'),(16,'2022-08-15 09:48:55','Insert',2,NULL,'0976739552');
+/*!40000 ALTER TABLE `nhanvien_sdt_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `sohuucanhan`
@@ -1481,8 +1641,18 @@ CREATE TABLE `sohuucanhan` (
   CONSTRAINT `SHCN-MaNV` FOREIGN KEY (`MaNV`) REFERENCES `nhanvien` (`MaNV`),
   CONSTRAINT `SHCN-MaTKGT` FOREIGN KEY (`MaTKGT`) REFERENCES `taikhoanguitien` (`MaTKGT`),
   CONSTRAINT `SHCN-MaTKTD` FOREIGN KEY (`MaTKTD`) REFERENCES `taikhoantindung` (`MaTKTD`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sohuucanhan`
+--
+
+LOCK TABLES `sohuucanhan` WRITE;
+/*!40000 ALTER TABLE `sohuucanhan` DISABLE KEYS */;
+INSERT INTO `sohuucanhan` VALUES (6,'2022-08-15 10:00:22',1,1,NULL,1),(7,'2022-08-15 10:00:22',2,2,NULL,2),(8,'2022-08-15 10:00:22',3,3,NULL,2),(9,'2022-08-15 10:00:22',4,4,NULL,1),(10,'2022-08-15 10:00:22',5,5,NULL,1),(11,'2022-08-15 10:00:22',6,6,NULL,1),(12,'2022-08-15 10:00:22',7,7,NULL,1),(13,'2022-08-15 10:00:22',8,8,NULL,2),(14,'2022-08-15 10:00:22',9,9,NULL,2),(15,'2022-08-15 10:00:22',10,10,NULL,1),(16,'2022-08-15 10:00:22',1,NULL,14,1),(17,'2022-08-15 10:00:22',2,NULL,15,2),(18,'2022-08-15 10:00:22',3,NULL,16,1),(19,'2022-08-15 10:00:22',4,NULL,17,2),(20,'2022-08-15 10:00:22',5,NULL,18,2),(21,'2022-08-15 10:00:22',6,NULL,19,1),(22,'2022-08-15 10:00:22',7,NULL,20,1),(23,'2022-08-15 10:00:22',8,NULL,21,1),(24,'2022-08-15 10:00:22',9,NULL,22,1),(25,'2022-08-15 10:00:22',10,NULL,23,2);
+/*!40000 ALTER TABLE `sohuucanhan` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1715,8 +1885,18 @@ CREATE TABLE `sohuucanhan_log` (
   `MaTKGT` int DEFAULT NULL,
   `MaNV` int DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sohuucanhan_log`
+--
+
+LOCK TABLES `sohuucanhan_log` WRITE;
+/*!40000 ALTER TABLE `sohuucanhan_log` DISABLE KEYS */;
+INSERT INTO `sohuucanhan_log` VALUES (9,'2022-08-15 10:00:22','Insert',6,NULL,1,1,NULL,1),(10,'2022-08-15 10:00:22','Insert',7,NULL,2,2,NULL,2),(11,'2022-08-15 10:00:22','Insert',8,NULL,3,3,NULL,2),(12,'2022-08-15 10:00:22','Insert',9,NULL,4,4,NULL,1),(13,'2022-08-15 10:00:22','Insert',10,NULL,5,5,NULL,1),(14,'2022-08-15 10:00:22','Insert',11,NULL,6,6,NULL,1),(15,'2022-08-15 10:00:22','Insert',12,NULL,7,7,NULL,1),(16,'2022-08-15 10:00:22','Insert',13,NULL,8,8,NULL,2),(17,'2022-08-15 10:00:22','Insert',14,NULL,9,9,NULL,2),(18,'2022-08-15 10:00:22','Insert',15,NULL,10,10,NULL,1),(19,'2022-08-15 10:00:22','Insert',16,NULL,1,NULL,14,1),(20,'2022-08-15 10:00:22','Insert',17,NULL,2,NULL,15,2),(21,'2022-08-15 10:00:22','Insert',18,NULL,3,NULL,16,1),(22,'2022-08-15 10:00:22','Insert',19,NULL,4,NULL,17,2),(23,'2022-08-15 10:00:22','Insert',20,NULL,5,NULL,18,2),(24,'2022-08-15 10:00:22','Insert',21,NULL,6,NULL,19,1),(25,'2022-08-15 10:00:22','Insert',22,NULL,7,NULL,20,1),(26,'2022-08-15 10:00:22','Insert',23,NULL,8,NULL,21,1),(27,'2022-08-15 10:00:22','Insert',24,NULL,9,NULL,22,1),(28,'2022-08-15 10:00:22','Insert',25,NULL,10,NULL,23,2);
+/*!40000 ALTER TABLE `sohuucanhan_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `sohuutochucdoanhnghiep`
@@ -1741,8 +1921,18 @@ CREATE TABLE `sohuutochucdoanhnghiep` (
   CONSTRAINT `SHTCDN-MaNV` FOREIGN KEY (`MaNV`) REFERENCES `nhanvien` (`MaNV`),
   CONSTRAINT `SHTCDN-MaTKGT` FOREIGN KEY (`MaTKGT`) REFERENCES `taikhoanguitien` (`MaTKGT`),
   CONSTRAINT `SHTCDN-MaTKVT` FOREIGN KEY (`MaTKVT`) REFERENCES `taikhoanvaytien` (`MaTKVT`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sohuutochucdoanhnghiep`
+--
+
+LOCK TABLES `sohuutochucdoanhnghiep` WRITE;
+/*!40000 ALTER TABLE `sohuutochucdoanhnghiep` DISABLE KEYS */;
+INSERT INTO `sohuutochucdoanhnghiep` VALUES (6,'2022-08-15 10:01:14',11,NULL,11,2),(7,'2022-08-15 10:01:14',12,NULL,12,1),(8,'2022-08-15 10:01:14',13,NULL,13,1),(9,'2022-08-15 10:01:14',11,24,NULL,2),(10,'2022-08-15 10:01:14',12,25,NULL,2),(11,'2022-08-15 10:01:14',13,26,NULL,2);
+/*!40000 ALTER TABLE `sohuutochucdoanhnghiep` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1975,8 +2165,18 @@ CREATE TABLE `sohuutochucdoanhnghiep_log` (
   `MaTKVT` int DEFAULT NULL,
   `MaNV` int DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sohuutochucdoanhnghiep_log`
+--
+
+LOCK TABLES `sohuutochucdoanhnghiep_log` WRITE;
+/*!40000 ALTER TABLE `sohuutochucdoanhnghiep_log` DISABLE KEYS */;
+INSERT INTO `sohuutochucdoanhnghiep_log` VALUES (6,'2022-08-15 10:01:14','Insert',6,NULL,11,NULL,11,2),(7,'2022-08-15 10:01:14','Insert',7,NULL,12,NULL,12,1),(8,'2022-08-15 10:01:14','Insert',8,NULL,13,NULL,13,1),(9,'2022-08-15 10:01:14','Insert',9,NULL,11,24,NULL,2),(10,'2022-08-15 10:01:14','Insert',10,NULL,12,25,NULL,2),(11,'2022-08-15 10:01:14','Insert',11,NULL,13,26,NULL,2);
+/*!40000 ALTER TABLE `sohuutochucdoanhnghiep_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `taikhoan`
@@ -1991,6 +2191,16 @@ CREATE TABLE `taikhoan` (
   PRIMARY KEY (`MaTK`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `taikhoan`
+--
+
+LOCK TABLES `taikhoan` WRITE;
+/*!40000 ALTER TABLE `taikhoan` DISABLE KEYS */;
+INSERT INTO `taikhoan` VALUES (1,'thường'),(2,'thường'),(3,'thường'),(4,'thường'),(5,'thường'),(6,'thường'),(7,'thường'),(8,'thường'),(9,'thường'),(10,'thường'),(11,'thường'),(12,'thường'),(13,'thường'),(14,'thường'),(15,'thường'),(16,'thường'),(17,'thường'),(18,'thường'),(19,'thường'),(20,'thường'),(21,'thường'),(22,'thường'),(23,'thường'),(24,'thường'),(25,'thường'),(26,'thường');
+/*!40000 ALTER TABLE `taikhoan` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -2150,8 +2360,18 @@ CREATE TABLE `taikhoan_log` (
   `Hang_old` varchar(255) DEFAULT NULL,
   `Hang_new` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `taikhoan_log`
+--
+
+LOCK TABLES `taikhoan_log` WRITE;
+/*!40000 ALTER TABLE `taikhoan_log` DISABLE KEYS */;
+INSERT INTO `taikhoan_log` VALUES (20,'2022-08-15 09:54:07','Insert',1,NULL,'thường'),(21,'2022-08-15 09:54:07','Insert',2,NULL,'thường'),(22,'2022-08-15 09:54:07','Insert',3,NULL,'thường'),(23,'2022-08-15 09:54:07','Insert',4,NULL,'thường'),(24,'2022-08-15 09:54:07','Insert',5,NULL,'thường'),(25,'2022-08-15 09:54:07','Insert',6,NULL,'thường'),(26,'2022-08-15 09:54:07','Insert',7,NULL,'thường'),(27,'2022-08-15 09:54:07','Insert',8,NULL,'thường'),(28,'2022-08-15 09:54:07','Insert',9,NULL,'thường'),(29,'2022-08-15 09:54:07','Insert',10,NULL,'thường'),(30,'2022-08-15 09:54:07','Insert',11,NULL,'thường'),(31,'2022-08-15 09:54:07','Insert',12,NULL,'thường'),(32,'2022-08-15 09:54:07','Insert',13,NULL,'thường'),(33,'2022-08-15 09:54:07','Insert',14,NULL,'thường'),(34,'2022-08-15 09:54:07','Insert',15,NULL,'thường'),(35,'2022-08-15 09:57:08','Insert',16,NULL,'thường'),(36,'2022-08-15 09:57:08','Insert',17,NULL,'thường'),(37,'2022-08-15 09:57:08','Insert',18,NULL,'thường'),(38,'2022-08-15 09:57:08','Insert',19,NULL,'thường'),(39,'2022-08-15 09:57:08','Insert',20,NULL,'thường'),(40,'2022-08-15 09:57:08','Insert',21,NULL,'thường'),(41,'2022-08-15 09:57:08','Insert',22,NULL,'thường'),(42,'2022-08-15 09:57:08','Insert',23,NULL,'thường'),(43,'2022-08-15 09:57:08','Insert',24,NULL,'thường'),(44,'2022-08-15 09:57:08','Insert',25,NULL,'thường'),(45,'2022-08-15 09:57:30','Insert',26,NULL,'thường');
+/*!40000 ALTER TABLE `taikhoan_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `taikhoanguitien`
@@ -2167,6 +2387,16 @@ CREATE TABLE `taikhoanguitien` (
   PRIMARY KEY (`MaTKGT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `taikhoanguitien`
+--
+
+LOCK TABLES `taikhoanguitien` WRITE;
+/*!40000 ALTER TABLE `taikhoanguitien` DISABLE KEYS */;
+INSERT INTO `taikhoanguitien` VALUES (14,1,10123),(15,1,19657),(16,1,25000),(17,1,17000),(18,1,18000),(19,1,45000),(20,1,56000),(21,1,24000),(22,1,35000),(23,1,56600),(24,1,56748),(25,1,23462),(26,1,32420);
+/*!40000 ALTER TABLE `taikhoanguitien` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -2318,8 +2548,18 @@ CREATE TABLE `taikhoanguitien_log` (
   `SoDu_old` varchar(255) DEFAULT NULL,
   `SoDu_new` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `taikhoanguitien_log`
+--
+
+LOCK TABLES `taikhoanguitien_log` WRITE;
+/*!40000 ALTER TABLE `taikhoanguitien_log` DISABLE KEYS */;
+INSERT INTO `taikhoanguitien_log` VALUES (10,'2022-08-15 09:58:46','Insert',14,NULL,'1',NULL,'10000'),(11,'2022-08-15 09:58:46','Insert',15,NULL,'1',NULL,'20000'),(12,'2022-08-15 09:58:46','Insert',16,NULL,'1',NULL,'25000'),(13,'2022-08-15 09:58:46','Insert',17,NULL,'1',NULL,'17000'),(14,'2022-08-15 09:58:46','Insert',18,NULL,'1',NULL,'18000'),(15,'2022-08-15 09:58:46','Insert',19,NULL,'1',NULL,'45000'),(16,'2022-08-15 09:58:46','Insert',20,NULL,'1',NULL,'56000'),(17,'2022-08-15 09:58:46','Insert',21,NULL,'1',NULL,'24000'),(18,'2022-08-15 09:58:46','Insert',22,NULL,'1',NULL,'35000'),(19,'2022-08-15 09:58:46','Insert',23,NULL,'1',NULL,'56600'),(20,'2022-08-15 09:58:46','Insert',24,NULL,'1',NULL,'56900'),(21,'2022-08-15 09:58:46','Insert',25,NULL,'1',NULL,'23450'),(22,'2022-08-15 09:58:46','Insert',26,NULL,'1',NULL,'32450'),(28,'2022-08-15 10:28:40','Update',14,'1','1','10000','10123'),(29,'2022-08-15 10:28:40','Update',15,'1','1','20000','19657'),(30,'2022-08-15 10:34:24','Update',24,'1','1','56900','56748'),(31,'2022-08-15 10:34:24','Update',25,'1','1','23450','23462'),(32,'2022-08-15 10:34:24','Update',26,'1','1','32450','32420');
+/*!40000 ALTER TABLE `taikhoanguitien_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `taikhoantindung`
@@ -2336,6 +2576,16 @@ CREATE TABLE `taikhoantindung` (
   CONSTRAINT `MaTKTD` FOREIGN KEY (`MaTKTD`) REFERENCES `taikhoan` (`MaTK`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `taikhoantindung`
+--
+
+LOCK TABLES `taikhoantindung` WRITE;
+/*!40000 ALTER TABLE `taikhoantindung` DISABLE KEYS */;
+INSERT INTO `taikhoantindung` VALUES (1,100000,1623),(2,100000,1484),(3,100000,2924),(4,100000,4745),(5,100000,3465),(6,100000,5063),(7,100000,5136),(8,100000,2552),(9,100000,4850),(10,100000,1853);
+/*!40000 ALTER TABLE `taikhoantindung` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -2487,8 +2737,18 @@ CREATE TABLE `taikhoantindung_log` (
   `SoNo_old` varchar(255) DEFAULT NULL,
   `SoNo_new` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `taikhoantindung_log`
+--
+
+LOCK TABLES `taikhoantindung_log` WRITE;
+/*!40000 ALTER TABLE `taikhoantindung_log` DISABLE KEYS */;
+INSERT INTO `taikhoantindung_log` VALUES (6,'2022-08-15 09:55:37','Insert',1,NULL,'100000',NULL,'1200'),(7,'2022-08-15 09:55:37','Insert',2,NULL,'100000',NULL,'1250'),(8,'2022-08-15 09:55:37','Insert',3,NULL,'100000',NULL,'2500'),(9,'2022-08-15 09:55:37','Insert',4,NULL,'100000',NULL,'4500'),(10,'2022-08-15 09:55:37','Insert',5,NULL,'100000',NULL,'2700'),(11,'2022-08-15 09:55:37','Insert',6,NULL,'100000',NULL,'4500'),(12,'2022-08-15 09:55:37','Insert',7,NULL,'100000',NULL,'4500'),(13,'2022-08-15 09:55:37','Insert',8,NULL,'100000',NULL,'2100'),(14,'2022-08-15 09:55:37','Insert',9,NULL,'100000',NULL,'4500'),(15,'2022-08-15 09:55:37','Insert',10,NULL,'100000',NULL,'1200'),(16,'2022-08-15 10:17:16','Update',1,'100000','100000','1200','1623'),(17,'2022-08-15 10:17:16','Update',2,'100000','100000','1250','1484'),(18,'2022-08-15 10:17:16','Update',3,'100000','100000','2500','2924'),(19,'2022-08-15 10:17:16','Update',4,'100000','100000','4500','4745'),(20,'2022-08-15 10:17:16','Update',5,'100000','100000','2700','3465'),(21,'2022-08-15 10:17:16','Update',6,'100000','100000','4500','5063'),(22,'2022-08-15 10:17:16','Update',7,'100000','100000','4500','5136'),(23,'2022-08-15 10:17:16','Update',8,'100000','100000','2100','2552'),(24,'2022-08-15 10:17:16','Update',9,'100000','100000','4500','4850'),(25,'2022-08-15 10:17:16','Update',10,'100000','100000','1200','1853');
+/*!40000 ALTER TABLE `taikhoantindung_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `taikhoanvaytien`
@@ -2505,6 +2765,16 @@ CREATE TABLE `taikhoanvaytien` (
   CONSTRAINT `MaTKVT` FOREIGN KEY (`MaTKVT`) REFERENCES `taikhoan` (`MaTK`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `taikhoanvaytien`
+--
+
+LOCK TABLES `taikhoanvaytien` WRITE;
+/*!40000 ALTER TABLE `taikhoanvaytien` DISABLE KEYS */;
+INSERT INTO `taikhoanvaytien` VALUES (11,6,1770),(12,6,2712),(13,6,6980);
+/*!40000 ALTER TABLE `taikhoanvaytien` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -2657,8 +2927,18 @@ CREATE TABLE `taikhoanvaytien_log` (
   `SoNo_old` varchar(255) DEFAULT NULL,
   `SoNo_new` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `taikhoanvaytien_log`
+--
+
+LOCK TABLES `taikhoanvaytien_log` WRITE;
+/*!40000 ALTER TABLE `taikhoanvaytien_log` DISABLE KEYS */;
+INSERT INTO `taikhoanvaytien_log` VALUES (11,'2022-08-15 09:56:06','Insert',11,NULL,'6',NULL,'1500'),(12,'2022-08-15 09:56:06','Insert',12,NULL,'6',NULL,'2700'),(13,'2022-08-15 09:56:06','Insert',13,NULL,'6',NULL,'7000'),(14,'2022-08-15 10:34:24','Update',11,'6','6','1500','1800'),(15,'2022-08-15 10:34:24','Update',12,'6','6','2700','2712'),(16,'2022-08-15 10:34:24','Update',13,'6','6','7000','6980'),(17,'2022-08-15 10:34:24','Update',11,'6','6','1800','1770');
+/*!40000 ALTER TABLE `taikhoanvaytien_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Dumping events for database 'chinhanhnganhang'
@@ -2756,6 +3036,7 @@ BEGIN
     on kh.MaKH = shcn.MaKHCN
 	join taikhoanguitien tkgt
     on shcn.MaTKGT = tkgt.MaTKGT
+    group by kh.MaKH
     
 	union
     
@@ -2766,6 +3047,7 @@ BEGIN
     on kh.MaKH = shtcdn.MaKHTCDN
 	join taikhoanguitien tkgt
     on shtcdn.MaTKGT = tkgt.MaTKGT
+    group by kh.MaKH
     
     order by SoduTKGT desc
     limit 10;
@@ -2790,9 +3072,9 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `LietKeTinDung`(
     in end_date date
 )
 BEGIN
-	select kh.Ten as Ten, sum(gdcn.SoTien) as SoTien
-    from giaodichcanhan gdcn
-    join khachhang kh
+	select kh.Ten as Ten, gdcn.SoTien as SoTien
+    from khachhang kh
+	join giaodichcanhan gdcn
     on gdcn.MaKHCN = kh.MaKH
     where gdcn.MaTKTD is not null and gdcn.MaTKTD != "" and cast(gdcn.ThoiGianThucHien as date) >= start_date and cast(gdcn.ThoiGianThucHien as date) <= end_date;
 END ;;
@@ -4301,4 +4583,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-14 23:42:38
+-- Dump completed on 2022-08-15 11:01:55
